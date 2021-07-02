@@ -62,7 +62,7 @@
         <div class="col-12">
             <strong class="white">Contact Information</strong>
             <ul>
-                <li><i class="bi-telephone"></i> +256 712 900 030</li>
+                <li><i class="bi-telephone"></i> +1 (555) 123-4567</li>
                 <li><i class="bi-envelope"></i> support@liquidfish.com</li>
             </ul>
 
