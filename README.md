@@ -1,5 +1,6 @@
 # Liquidfish Developer Test
-[![Laravel](https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/194_Laravel-128.png)](https://nodesource.com/products/nsolid)
+<img src="https://laravel.com/img/logomark.min.svg" width="50" height="50">
+
 *powered by Laravel 8, Bootstrap 5 & MySQL*
 
 ### ASSIGNMENT
