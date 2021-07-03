@@ -193,7 +193,43 @@ php artisan serve
 Open the application on your browser at: http://localhost:8000
 Port **8000** is the default port, but in instances where its taken, the terminal will identify which port is running your application.
 
+
+# MAILING
+[![Mailtrap](https://assets.mailtrap.io/packs/assets/landing/logo-10f83f473022ef53d82e.svg)](https://mailtrap.io/)
+
+I am using mailtrap which is an email testing tool designed not to deliver emails to real email addresses. it is used to 
+capture SMTP traffic from staging and dev environments. its pretty much
+an email sandbox service. to set it to work on this project go to:
+
+https://mailtrap.io/
+
+Sign Up and open an account using either your **Google Account**, **Github**, **Office 365**
+or your **Email**
+
+After Signing up, it will log you into your account session under the **Inboxes** tab. you will then proceed
+to **Integrations** dropdown and choose the option of **Laravel 7+** under the PHP category.
+
+You will be given mail settings which you will copy into your **.env** file
+at the same key value pairs like so:
+
+```angular2html
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=376b142b6cf176
+MAIL_PASSWORD=675f123f7df6d1
+MAIL_ENCRYPTION=tls
+```
+
+The **MAIL_USERNAME** and **MAIL_PASSWORD** might slightly differ from mine above. 
+
+After, you should be able to receive the emails on this platform from the contact page.
+>Do not worry about the container, since the changes are linked by volumes, it will update the changes in the container
 ## License
 
 MIT Open Source
 
+## Author
+<img src="https://avatars.githubusercontent.com/u/59564745?v=4"  width="30" height="30"/> 
+
+Sewalu Mukasa Steven
