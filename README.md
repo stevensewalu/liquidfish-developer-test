@@ -111,7 +111,7 @@ Use any graphical database tool of choice to log into the running mysql containe
 
 After , you are done, you can then proceed to migrating withing your container like so:
 ```sh
-php artisan migrate --seed
+sail php artisan migrate --seed
 ```
 #### Open the Application
 Go to your browser of choice and open: http://localhost/
