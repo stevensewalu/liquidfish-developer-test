@@ -44,56 +44,10 @@
 
     </div>
 </div>
-<script type="text/javascript">
-    //Send Message for posting
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    $(".submit").click((e) => {
-        e.preventDefault();
-        document.getElementById('spinner').style.display = 'inline';
-        const data = {
-            firstName: $("input[name=firstName]").val(),
-            lastName: $("input[name=lastName]").val(),
-            email: $("input[name=email]").val(),
-            phone: $("input[name=phone]").val(),
-            subject: $("input[name=subject]").val(),
-            message: $("textarea[name=message]").val()
-        }
-
-        $.ajax({
-            type:'POST',
-            url:'{{route('messages.store')}}',
-            data,
-            success:(response) => {
-                document.getElementById('response').innerText = response.data.firstName + "'s message has been successfully sent"
-                $('.success-toast').toast('show');
-                document.getElementById('spinner').style.display = 'none';
-                //reset form
-                document.getElementById("form").reset();
-
-            },
-            error: (xhr, status, error) => {
-                document.getElementById('spinner').style.display = 'none';
-                if(xhr.responseJSON.message)
-                    document.getElementById('error').innerText = xhr.responseJSON.message
-                if(xhr.responseJSON.errors)
-                    for (detail in xhr.responseJSON.errors) {
-                        document.getElementById('error').innerText = xhr.responseJSON.errors[detail];
-                        $('.error-toast').toast('show');
-
-                    }
-
-            }
-
-        });
-
-    });
-
+<script>
+    const postUrl = "{{route('messages.store')}}";
 </script>
+<script src="{{ asset('assets/js/custom.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

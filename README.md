@@ -55,7 +55,7 @@ The above confirms the version of git installed on your local machine.
 Go and open a directory of choice  and open your terminal there and run this clone command.
 
 ```sh
-git clone https://gitlab.com/sewalusteven/liquidfish-developer-test.git
+git clone https://github.com/stevensewalu/liquidfish-developer-test.git
 ```
 After cd into the repository on your local machine
 ```sh
@@ -152,7 +152,7 @@ The above confirms the version of composer installed on your local machine.
 Go and open a directory of choice  and open your terminal there and run this clone command.
 
 ```sh
-git clone https://gitlab.com/sewalusteven/liquidfish-developer-test.git
+git clone https://github.com/stevensewalu/liquidfish-developer-test.git
 ```
 After cd into the repository on your local machine
 ```sh
