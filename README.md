@@ -114,8 +114,43 @@ After , you are done, you can then proceed to migrating withing your container l
 ```sh
 sail php artisan migrate --seed
 ```
+
+### CONFIGURING JOB QUEUES 
+As we stand right now the application will work just fine but it will be slow to respond
+after one submits their message. This is because it would take about 3-4 seconds sending the notification email
+to the receiver. The solution to this problem is using queues. to configure them directly into the container you will run
+the following commands:
+
+```angular2html
+sail php artisan queue:table
+````
+
+After that you migrate
+```angular2html
+sail php artisan migrate
+```
+
+After you are done with the migration. you will proceed to run the worker in the background using the following command:
+
+```angular2html
+sail php artisan queue:work
+```
+
+>Under normal circumstances, you will be required to restart the server for changes to take effect. to do so, you might
+> have to run
+> ```angular2html 
+> sail down
+>```
+> And then restart it using
+> ```angular2html
+> sail up
+>```
+> then re run the worker by running
+> ```angular2html
+> sail php artisan queue:work
+>```
 #### Open the Application
-Go to your browser of choice and open: http://localhost/
+Once you are done with everything above, go to your browser of choice and open: http://localhost/
 
 # OPTION 2: RUNNING THE APPLICATION ON LOCAL SERVER
 > Prerequisites Installations: WAMP Server (Windows Users), MAMP (Mac Users) and LAMP (Linux Users)
@@ -186,6 +221,28 @@ After that ran the set migration and seed:
 php artisan migrate --seed
 ```
 
+### CONFIGURING JOB QUEUES
+As we stand right now the application will work just fine but it will be slow to respond
+after one submits their message. This is because it would take about 3-4 seconds sending the notification email
+to the receiver. The solution to this problem is using queues. to configure them directly you will run
+the following commands:
+
+```angular2html
+php artisan queue:table
+````
+
+After that you migrate
+```angular2html
+php artisan migrate
+```
+
+After you are done with the migration. you will proceed to run the worker in the background in a different terminal tab using the following command:
+
+```angular2html
+php artisan queue:work
+```
+That should do the trick.
+
 #### Run The Application
 Serve the Application using:
 ```
@@ -226,9 +283,16 @@ The **MAIL_USERNAME** and **MAIL_PASSWORD** might slightly differ from mine abov
 
 After, you should be able to receive the emails on this platform from the contact page.
 >Do not worry about the container, since the changes are linked by volumes, it will update the changes in the container
+
+>**Note**: Its is important to note that to get the right redirect URL to work in the 
+> notification email sent, change the **APP_URL** key in **.env** file to match the URL you are working with locally.
+> >if you are using docker option it will be : http://localhost
+> 
+> > if you are using your local machine directly, it will most likely be : http://localhost:8000
+> > That is if port **8000** is not already taken. if it has , just get the port that is being served and replace it
 ## License
 
-MIT Open Source
+Open Source
 
 ## Author
 <img src="https://avatars.githubusercontent.com/u/59564745?v=4"  width="30" height="30"/> 

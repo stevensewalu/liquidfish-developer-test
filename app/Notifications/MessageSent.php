@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class MessageSent extends Notification
+class MessageSent extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -45,7 +45,7 @@ class MessageSent extends Notification
     {
         return (new MailMessage)
                     ->line($this->notification['body'])
-                    ->action('View Message Here', url('messages/'.$this->notification['id']))
+                    ->action('View Message Here', route('messages.show',['message' => $this->notification['id']]))
                     ->line('Thank you for using our application!');
     }
 
